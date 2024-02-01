@@ -6,16 +6,20 @@ import dockerApi from '../apis/docker-api'
 
 const Docker = () => {
     const [message, setMessage] = useState()
+    const config = {
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+    };
+
     const id = 1
 
     useEffect(() => {
         dockerApi
-            .get(`/message/${id}`)
+            .get(`/message/${id}`, config)
             .then(response => setMessage(response.data))
             .catch(err => console.error(`An error has occurred: ${err}`))
     }, [])
-
-    console.log(message)
 
     return (
         <div>

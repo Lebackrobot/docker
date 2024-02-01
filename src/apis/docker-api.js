@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const dockerApi = axios.create({
-    baseURL: 'http://localhost:4000'
+    baseURL: 'https://docker-backend-deploy.onrender.com'
 })
 
 export default dockerApi;
