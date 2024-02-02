@@ -9,7 +9,6 @@ import dockerApi from '../apis/docker-api'
 const Docker = () => {
     const [message, setMessage] = useState()
     const [loading, setLoading] = useState(true);
-    const [isReady, setIsReady] = useState(false);
     const id = 1;
 
     useEffect(() => {
@@ -18,11 +17,6 @@ const Docker = () => {
             .get(`/message/${id}`)
             .then(response => {
                 setTimeout(() => {
-                    const loadImage = () => {
-                        const img = new Image()
-                        img.src = '../images/icon.png'
-                    }
-
                     setLoading(false)
                     setMessage(response.data)
                 }, 2000)
