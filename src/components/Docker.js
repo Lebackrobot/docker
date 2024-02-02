@@ -15,10 +15,11 @@ const Docker = () => {
         dockerApi
             .get(`/message/${id}`)
             .then(response => {
-                setMessage(response.data)
                 setTimeout(() => {
                     setLoading(false)    
+                    setMessage(response.data)
                 }, 2000)
+                
             })
             .catch(err => console.error(`An error has occurred: ${err}`))
     }, [])
