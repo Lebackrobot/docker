@@ -6,7 +6,6 @@ import dockerApi from '../apis/docker-api'
 
 const Docker = () => {
     const [message, setMessage] = useState()
-    
     const id = 1
 
     useEffect(() => {
