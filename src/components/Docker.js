@@ -16,13 +16,15 @@ const Docker = () => {
         dockerApi
             .get(`/message/${id}`)
             .then(response => {
-                setTimeout(() => {
-                    setLoading(false)
-                    setMessage(response.data)
-                }, 2000)
-                
+                setLoading(false)
+                setMessage(response.data)
             })
-            .catch(err => console.error(`An error has occurred: ${err}`))
+
+            .catch(err => {
+                console.error(`An error has occurred: ${err}`)
+                 setMessage({description: 'Ops! Parece que ocorreu um erro'})
+                 
+            })
     }, [])
 
     if (loading) {
